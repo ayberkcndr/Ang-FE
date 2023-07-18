@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<div>
+<div class="rezervation-main">
+        
+    <div class="rezervation-form-main">
+        <form class="rezervation-form" (ngSubmit)="sendName()" >
+            <fieldset>
+                
+                <div class="form-group">
+                    <input type="number" placeholder="Yetişken Sayısı" min="0">
+                    <input type="number" placeholder="Çocuk sayısı" min="0">
+                    
+                </div>
+    
+                <div class="form-group">
+                    <input type="text" name="name" id="name" [(ngModel)]="name" placeholder="Adınız">
+                    <input type="text" name="form-surname" placeholder="Soyadınız">
+                </div>
+    
+                <div class="form-group">
+                    <input type="text" name="form-tc" placeholder="T.C. Kimlik No" maxlength="11">
+                    <input type="email" name="form-email" placeholder="Email Adresiniz">
+                </div>
+    
+                <div class="form-group">
+                    <input type="submit" value="Gönder">
+                </div>
+            </fieldset>
+        </form> 
+    </div>
+
+    <div class="rooms">
+
+        <div class="room-group">
+            <div class="room-card-container">
+                <div *ngFor="let room of rooms" class="room-card" [class.selected]="room.selected" (click)="toggleSelection(room)">
+                <img [src]="room.image" [alt]="room.title" class="room-image">
+                <h3 class="room-title">{{ room.title }}</h3>
+                <p class="room-description">{{ room.description }}</p>
+                </div>
+            </div>
+    </div>
+
+</div>
+
+
+</div>
+<app-footer></app-footer>
